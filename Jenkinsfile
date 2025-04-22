@@ -34,12 +34,11 @@ pipeline {
                 '''
             }
         }
-    }
-
-    stage('E2E Deploy') {
+        
+        stage('E2E Deploy') {
             agent {
                 docker {
-                    image 'docker pull mcr.microsoft.com/playwright:v1.52.0-noble'
+                    image 'mcr.microsoft.com/playwright:v1.52.0-noble'
                     reuseNode true
                 }
             }
@@ -52,7 +51,7 @@ pipeline {
             }
         }
     }
-    //test graphs
+    
     post {
         always {
             junit 'test-results/junit.xml'
