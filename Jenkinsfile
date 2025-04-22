@@ -19,7 +19,6 @@ pipeline {
                 '''
             }    
         }
-    
     stage('Test') {
         sh '''
         echo "Test stage"
